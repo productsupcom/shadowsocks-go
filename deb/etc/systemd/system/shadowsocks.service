@@ -1,0 +1,10 @@
+[Unit]
+Description=Shadowsocks is a lightweight tunneling proxy
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/shadowsocks-server -c /etc/shadowsocks/config.json
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

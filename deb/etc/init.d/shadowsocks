@@ -25,6 +25,8 @@ PID_DIR=/var/run
 PID_FILE=$PID_DIR/shadowsocks.pid
 RET_VAL=0
 
+. /lib/lsb/init-functions
+
 [ -x $BIN ] || exit 0
 
 check_running() {

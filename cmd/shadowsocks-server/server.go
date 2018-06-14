@@ -429,7 +429,10 @@ func main() {
 		config = &cmdConfig
 		ss.UpdateConfig(config, config)
 	} else {
-		ss.UpdateConfig(config, &cmdConfig)
+		visitor := func(f *flag.Flag) {
+			flag.Set(f.Name, f.Value.String())
+		}
+		flag.Visit(visitor)
 	}
 	if config.Method == "" {
 		config.Method = "aes-256-cfb"
